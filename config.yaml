@@ -1,0 +1,19 @@
+# system configuration
+system:
+  httpPort: 8080
+  mode: release
+
+# zap logger configuration
+zap:
+  level: 'debug'
+  format: 'json'
+  filename: "logs/app.log"
+  maxSize: 10
+  maxBackups: 2
+  maxAge: 2
+
+# jwt
+JWT:
+#  secret: ainiok
+#  issuer: api-service
+  expire: 7200
