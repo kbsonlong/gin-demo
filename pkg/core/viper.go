@@ -1,3 +1,11 @@
+/*
+ * @Author: kbsonlong kbsonlong@gmail.com
+ * @Date: 2023-05-09 14:27:20
+ * @LastEditors: kbsonlong kbsonlong@gmail.com
+ * @LastEditTime: 2023-05-09 16:42:44
+ * @FilePath: /mysql-operator/Users/zengshenglong/Code/GoWorkSpace/go-demo/gin-demo/pkg/core/viper.go
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 package core
 
 import (
@@ -11,6 +19,7 @@ import (
 )
 
 func Viper(path ...string) *viper.Viper {
+
 	var config string
 	if len(path) == 0 {
 		config = "config.yaml"
@@ -20,7 +29,8 @@ func Viper(path ...string) *viper.Viper {
 	}
 
 	v := viper.New()
-	//viper.AddConfigPath(".")
+	viper.AddConfigPath(".")
+	viper.AddConfigPath("./conf")
 	v.SetConfigFile(config)
 	err := v.ReadInConfig() // Find and read the config file
 	if err != nil {         // Handle errors reading the config file
